@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputPasswordComponent } from './input-password.component';
-import { SushiGroupModule } from '../../sushi-group/sushi-group.module';
+import { InputGenericModule } from '../../input-generic/input-generic.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +9,7 @@ import { SushiGroupModule } from '../../sushi-group/sushi-group.module';
   ],
   imports: [
     CommonModule,
-    SushiGroupModule
+    InputGenericModule
   ],
   exports:[
     InputPasswordComponent

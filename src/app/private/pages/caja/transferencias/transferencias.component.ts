@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { ValidatorsService } from 'src/app/services/validators.service';
+import { CustomValidators } from 'src/app/utils/validators/CustomValidators';
 
 @Component({
   selector: 'app-transferencias',
@@ -39,6 +40,10 @@ export class TransferenciasComponent implements OnInit {
 
   quitarControl(){    
     this.controls.pop()
+  }
+
+  submit() {
+    CustomValidators.validateForm(this.form);
   }
 
 }

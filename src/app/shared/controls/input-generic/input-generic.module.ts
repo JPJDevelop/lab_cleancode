@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SushiGroupComponent } from './sushi-group.component';
+import { InputGenericComponent } from './input-generic.component';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    SushiGroupComponent
+    InputGenericComponent
   ],
   imports: [
     CommonModule,
@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports:[
-    SushiGroupComponent
+    InputGenericComponent
   ]
 })
-export class SushiGroupModule { }
+export class InputGenericModule { }

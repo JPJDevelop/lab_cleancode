@@ -6,8 +6,8 @@ import { TransferenciasComponent } from './transferencias/transferencias.compone
 import { CajaRoutingModule } from './caja-routing.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { SushiGroupModule } from 'src/app/shared/controls/sushi-group/sushi-group.module';
 import { InputPasswordModule } from "../../../shared/controls/inputs/input-password/input-password.module";
+import { InputGenericModule } from 'src/app/shared/controls/input-generic/input-generic.module';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,7 @@ import { InputPasswordModule } from "../../../shared/controls/inputs/input-passw
     CommonModule,
     CajaRoutingModule,
     ReactiveFormsModule,
-    SushiGroupModule,
-    SushiGroupModule,
+    InputGenericModule,
     InputPasswordModule
 ]
 })

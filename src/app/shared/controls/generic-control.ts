@@ -21,12 +21,13 @@ export abstract class GenericControl implements OnInit, OnDestroy {
   }
 
   get controlErrors(){    
-    return this.parentFormGroup.get(this.controlName)?.errors;
+    const errors = this.parentFormGroup.get(this.controlName)?.errors;
+    return this.validatorsService.getErrorMessage(errors);
   }
 
-  get controlErrorKeys(): string[] {
-    const errors = this.controlErrors;
-    return errors ? Object.keys(errors) : [];
+  get showError(): boolean | undefined {
+    const control = this.parentFormGroup.get(this.controlName);
+    return control?.invalid && (control.touched || control.dirty); 
   }
 
   ngOnDestroy(): void {

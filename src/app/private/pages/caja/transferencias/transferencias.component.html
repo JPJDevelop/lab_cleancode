@@ -6,12 +6,15 @@
     <!-- <p>Que escribo en el control0: {{control0?.value}}</p> -->
     <button [disabled]="!control0?.value">PUEDO APRETAR ESTE BOTON CUANDO HAY ALGO EN EL CONTROL0</button>
     <ng-container *ngFor="let control of controls">
-        <app-sushi-group        
+        <input-generic        
         [controlName]="control.name" 
         [value]="control.value" 
-        [validators]="[validatorsService.validations.minLength(5).validator, validatorsService.validations.required.validator]"
-        ></app-sushi-group>
+        [validators]="[validatorsService.validations.minlength(5).validator, validatorsService.validations.required.validator]"
+        ></input-generic>
         <input-password></input-password>
     </ng-container>   
-    <!-- <button [disabled]="!form.valid">ENVIAR FORM</button> -->
+    <button [disabled]="!form.valid">ENVIAR FORM</button>
+    <!-- En realidad el boton deberia ser otro componente asi el submit lo hace siempre y siempre
+    se llama al CustomValidators.validateForm -->
+    <button (click)="submit()">ENVIAR FORM SIN DISABLED</button>
 </form>

@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export class CustomValidators {
 
@@ -8,5 +8,10 @@ export class CustomValidators {
       return pattern.test(control.value) ? null : { password: true };
     };
   }
-  
+
+  static validateForm(form: FormGroup) {
+    if (!form?.valid) {      
+        form?.markAllAsTouched()          
+    }
+  }
 }

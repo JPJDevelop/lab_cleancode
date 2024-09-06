@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
-import { ValidatorFn, Validators } from '@angular/forms';
+import { ValidationErrors, Validators } from '@angular/forms';
 import { CustomValidators } from '../utils/validators/CustomValidators';
-
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -9,34 +8,40 @@ import { CustomValidators } from '../utils/validators/CustomValidators';
 
 export class ValidatorsService {
   validations = {
+
     required: {
       validator: Validators.required,
       message: 'Este campo es requerido'
     },
-    minLength: (length: number) => ({
+
+    minlength: (length: number) => ({
       validator: Validators.minLength(length),
       message: `El campo debe tener al menos ${length} caracteres`
     }),
+
     password: {
       validator: CustomValidators.passwordValidator(),
       message: 'La contraseña debe tener al menos 8 caracteres e incluir mayúsculas y números.'
     }
+
   };
 
-  // passwordValidator(): ValidatorFn {
-  //   return (control) => {
-  //     const pattern = new RegExp('(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$');
-  //     return pattern.test(control.value) ? null : { password: true };
-  //   };
-  // }
+  getErrorMessage(errors: ValidationErrors | null | undefined): string | null {
+    if (!errors) return null;
 
-  /*getErrorMessage(errorKey: string, length?: number): string {
-    const validation = this.validations[errorKey];
-    if (typeof validation === 'function') {
-      return (validation as any)(length)?.message || 'Error desconocido';
+    const keyErrors: string[] = Object.keys(errors);
+    if (keyErrors.length === 0) return null;
+
+    const key = keyErrors[0] as keyof ValidatorsService['validations'];
+    const validator = this.validations[key];
+
+    if (typeof validator === 'function') {
+      const length = errors['minlength']?.requiredLength || 0;
+      const validationResult = validator(length);
+      return validationResult.message;
+    } else {
+      return validator.message;
     }
-    return validation?.message || 'Error desconocido';
-  }*/
+  }
 
-  constructor() { }
 }
