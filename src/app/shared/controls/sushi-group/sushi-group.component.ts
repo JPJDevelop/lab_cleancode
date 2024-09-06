@@ -16,13 +16,10 @@ import { GenericControl } from '../generic-control';
 
 export class SushiGroupComponent extends GenericControl {
 
-  getErrorMsg(key:string): string | null {
-    const key = this.controlErrorKeys[0];
-    const validation = this.validatorsService.validations[key];
-    if (validation && typeof validation !== 'function' && typeof validation.message === 'string') {
-      return validation.message;
-    }
-    return null;
+  getErrorMsg(key: string) {
+    const asd:any = this.validatorsService.validations;
+    return asd[key].message;
   }
+  
   
 }
