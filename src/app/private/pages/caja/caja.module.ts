@@ -7,6 +7,7 @@ import { CajaRoutingModule } from './caja-routing.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { SushiGroupModule } from 'src/app/shared/controls/sushi-group/sushi-group.module';
+import { InputPasswordModule } from "../../../shared/controls/inputs/input-password/input-password.module";
 
 @NgModule({
   declarations: [
@@ -15,11 +16,12 @@ import { SushiGroupModule } from 'src/app/shared/controls/sushi-group/sushi-grou
     TransferenciasComponent
   ],
   imports: [
-    CommonModule,    
+    CommonModule,
     CajaRoutingModule,
     ReactiveFormsModule,
     SushiGroupModule,
-    SushiGroupModule
-  ]
+    SushiGroupModule,
+    InputPasswordModule
+]
 })
 export class CajaModule { }

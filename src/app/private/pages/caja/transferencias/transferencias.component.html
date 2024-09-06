@@ -3,7 +3,7 @@
     
     <button (click)="agregarControl()">Agregar control</button>
     <button (click)="quitarControl()">Quitar control</button>
-    <p>Que escribo en el control0: {{control0?.value}}</p>
+    <!-- <p>Que escribo en el control0: {{control0?.value}}</p> -->
     <button [disabled]="!control0?.value">PUEDO APRETAR ESTE BOTON CUANDO HAY ALGO EN EL CONTROL0</button>
     <ng-container *ngFor="let control of controls">
         <app-sushi-group        
@@ -11,6 +11,7 @@
         [value]="control.value" 
         [validators]="[validatorsService.validations.minLength(5).validator, validatorsService.validations.required.validator]"
         ></app-sushi-group>
+        <input-password></input-password>
     </ng-container>   
-    <button [disabled]="!form.valid">ENVIAR FORM</button>
+    <!-- <button [disabled]="!form.valid">ENVIAR FORM</button> -->
 </form>

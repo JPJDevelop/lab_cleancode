@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 // Remove the import statement for 'testing' from '@angular/core'
 
-import { SushiGroupComponent } from './sushi-group.component';
+import { InputPasswordComponent } from './input-password.component';
 
-describe('SushiGroupComponent', () => {
-  let component: SushiGroupComponent;
-  let fixture: ComponentFixture<SushiGroupComponent>;
+describe('InputPasswordComponent', () => {
+  let component: InputPasswordComponent;
+  let fixture: ComponentFixture<InputPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SushiGroupComponent ]
+      declarations: [ InputPasswordComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SushiGroupComponent);
+    fixture = TestBed.createComponent(InputPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

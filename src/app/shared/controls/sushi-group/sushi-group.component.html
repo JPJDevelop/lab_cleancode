@@ -1,14 +1,16 @@
-<!-- <form [formGroup]="form"> -->
     <mat-form-field class="example-full-width">
         <mat-label>{{controlName}}</mat-label>
-        <input matInput placeholder="Ex. Pizza" [formControlName]="controlName">
+        <input matInput [formControlName]="controlName">
     </mat-form-field>
     {{controlErrors | json}}
-
-    <!-- <mat-error *ngFor="let errorKey of controlErrorKeys">
+<!-- 
+    <mat-error *ngFor="let errorKey of controlErrorKeys">
         {{errorKey | json}}
     </mat-error> -->
-    <!-- <mat-error *ngFor="let error of controlErrors">
-        error
-    </mat-error> -->
-<!-- </form> -->
+    <mat-error *ngIf=" controlErrorKeys.length > 0">
+        {{getErrorMsg(controlErrorKeys[0])}}
+        <!-- {{validatorsService.validations[controlErrorKeys[0].toString()].message}} -->
+    </mat-error>
+
+
+
