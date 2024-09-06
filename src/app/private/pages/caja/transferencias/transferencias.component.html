@@ -1,0 +1,16 @@
+<p>transferencias works!</p>
+<form [formGroup]="form">
+    
+    <button (click)="agregarControl()">Agregar control</button>
+    <button (click)="quitarControl()">Quitar control</button>
+    <p>Que escribo en el control0: {{control0?.value}}</p>
+    <button [disabled]="!control0?.value">PUEDO APRETAR ESTE BOTON CUANDO HAY ALGO EN EL CONTROL0</button>
+    <ng-container *ngFor="let control of controls">
+        <app-sushi-group        
+        [controlName]="control.name" 
+        [value]="control.value" 
+        [validators]="[validatorsService.validations.minLength(5).validator, validatorsService.validations.required.validator]"
+        ></app-sushi-group>
+    </ng-container>   
+    <button [disabled]="!form.valid">ENVIAR FORM</button>
+</form>
