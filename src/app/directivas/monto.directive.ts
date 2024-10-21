@@ -1,9 +1,11 @@
-import {AfterViewInit, Directive, ElementRef, HostListener} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {AfterViewInit, Directive, ElementRef, HostListener, NgModule} from '@angular/core';
 import {NgControl} from '@angular/forms';
 
 @Directive({
   selector: '[monto]'
 })
+
 export class MontoDirective {
 
   private iptValue = '';
