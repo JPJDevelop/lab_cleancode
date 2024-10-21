@@ -17,6 +17,7 @@ export class NoAuthGuard implements CanActivate {
 
       console.log('PASA2');
       if(!this.authService.isAuth()){
+        console.log(!this.authService.isAuth());
         return true
       }else{
         console.log('navega al private');

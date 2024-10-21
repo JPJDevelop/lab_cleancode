@@ -2,6 +2,13 @@ import { Component, inject, InjectFlags, Input, OnDestroy, OnInit} from '@angula
 import { ControlContainer, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ValidatorsService } from 'src/app/services/validators.service';
 
+export const GENERIC_CONTROL_VIEW_PROVIDERS = [
+  {
+    provide: ControlContainer,
+    useFactory: () => inject(ControlContainer, InjectFlags.SkipSelf)
+  }
+];
+
 @Component({
   template: ''  
 })

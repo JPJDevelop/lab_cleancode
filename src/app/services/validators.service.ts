@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 })
 
 export class ValidatorsService {
+  public mensajesValidadores: any[] = [];
   validations = {
 
     required: {
